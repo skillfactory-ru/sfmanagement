@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ru.skillfactory.sfmanagement.domain.Student;
 
 @Repository
-public interface StudentDao extends JpaRepository<Long, Student> {
+public interface StudentRepository extends JpaRepository<Student, Long> {
 }

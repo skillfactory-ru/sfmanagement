@@ -6,5 +6,11 @@ import lombok.Data;
 @Data
 @Builder
 public class StudentCreateResponse extends BaseResponse {
-    private boolean studentId;
+
+    public BaseResponse errors;
+    private Long studentId;
+
+    public StudentCreateResponse(BaseResponse errors) {
+        this.errors = errors;
+    }
 }

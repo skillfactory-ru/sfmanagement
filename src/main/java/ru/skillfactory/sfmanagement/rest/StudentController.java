@@ -4,12 +4,12 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import ru.skillfactory.sfmanagement.domain.Student;
 import ru.skillfactory.sfmanagement.rest.dto.BaseResponse;
 import ru.skillfactory.sfmanagement.service.StudentService;
+
+import javax.validation.Valid;
 
 @RestController
 @Api(value = "REST контроллер для управления студентами")
@@ -22,14 +22,14 @@ public class StudentController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ApiOperation(value = "Создание нового студента")
-    public BaseResponse createStudent() {
-        return null;
+    public BaseResponse createStudent(@Valid @RequestBody Student student) {
+        return studentService.createStudent(student);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
     @ApiOperation(value = "Обновление студента")
-    public BaseResponse updateStudent() {
-        return null;
+    public BaseResponse updateStudent(@Valid @RequestBody Student student) {
+        return studentService.updateStudent(student);
     }
 
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
