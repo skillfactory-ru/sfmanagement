@@ -4,7 +4,6 @@ import lombok.Builder;
 import lombok.Data;
 import ru.skillfactory.sfmanagement.domain.Student;
 
-@Builder
 @Data
 public class StudentUpdateResponse extends BaseResponse {
 

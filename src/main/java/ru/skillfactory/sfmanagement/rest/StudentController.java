@@ -34,14 +34,13 @@ public class StudentController {
 
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
     @ApiOperation(value = "Получение студента по ID")
-    public BaseResponse getStudent(@PathVariable(value = "id") Long id) {
-        return null;
+    public Student getStudent(@PathVariable(value = "id") Long id) {
+        return studentService.getStudentById(id);
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
-    public BaseResponse deleteStudent(@PathVariable(value = "id") Long id) {
-        return null;
+    @ApiOperation(value = "Удаление студента по ID")
+    public void delete(@PathVariable(value = "id") Long id) {
+        studentService.deleteStudent(id);
     }
-
-
 }
